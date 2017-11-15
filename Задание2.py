@@ -54,13 +54,13 @@ for u in range(0,len(Users)):
         dat= (Cont.iloc[u])[f]
         if (dat==' Sun'): #Порекомендовать в воськресеьне
             (Users.iloc[u])[f]=-1
-for x in range(0,len(Users)):  # расчет схожести пользователей 
+for x in range(0,len(Users)):  # расчет схожести user
     if x!= (myuser-1):
         sim_uv[x]=cosine_metric(Users.iloc[x], User35)
 sim_uv=dict(sorted(sim_uv.items(), key=lambda x: x[1], reverse=True)[:k])
 for x in range(0,len(User35)):
     if User35[x]==-1:
         result[x+1]=Main(x)
-result=dict(sorted(result.items(), key=lambda x: x[1], reverse=True)[:1])#просто сортируем словарь по убыванию метрик и берем первый 1 записей
+result=dict(sorted(result.items(), key=lambda x: x[1], reverse=True)[:1])#сортируем по убыванию метрик и выбрать первый 1 записей
 for i in result:
     print('Movie',i,':',round(result[i],2))
